@@ -1,0 +1,252 @@
+name: MinecartRevolution
+version: 1.1.0 (1.2.5 CB-R1)
+description: The Rebuild of MinecartMania!
+authors: [Hoppelmann, Nolig, TutorialMakerHD]
+load: startup
+website: http://www.MinecartRevolution.com
+main: de.MRTeam.MinecartRevolution.MinecartRevolution
+
+commands:
+    mr:
+      description: MinecartRevolution parent command.
+      usage: /<command> <ACTION> [Parameters ...]
+    st:
+      description: Saves the word STATION for terms/sensors.
+      usage: /<command> <STATION>
+
+permissions:
+    minecartrevolution.*:
+        description: Gives access to use all MinecartRevolution commands.
+        default: op
+        children:
+            minecartrevolution.update.*: true
+            minecartrevolution.addons.*: true
+            minecartrevolution.translations.*: true
+            minecartrevolution.flycart: true
+            minecartrevolution.vender: true
+            minecartrevolution.delcarts: true
+            minecartrevolution.stopcarts: true
+            minecartrevolution.getv: true
+            minecartrevolution.reload: true
+            minecartrevolution.st: true
+            minecartrevolution.patchregion: true
+            minecartrevolution.placeCtrlBlock.*: true
+
+    minecartrevolution.update.*:
+        description: Gives access to use all MinecartRevolution update functions.
+        children:
+            minecartrevolution.update.versioncheck: true
+            minecartrevolution.update.update: true
+    minecartrevolution.update.versioncheck:
+        description: Gives access to checks the MinecartRevolution version.
+    minecartrevolution.update.update:
+        description: Gives access to update the MinecartRevolution plugin.
+
+    minecartrevolution.addons.*:
+        description: Gives access to use all MinecartRevolution addon functions.
+        children:
+            minecartrevolution.addons.get: true
+            minecartrevolution.addons.check: true
+            minecartrevolution.addons.install: true
+    minecartrevolution.addons.get:
+        description: Gives access to get the installed MinecartRevolution addons.
+    minecartrevolution.addons.check:
+        description: Gives access to see all avaiable MinecartRevolution addons.
+    minecartrevolution.addons.install:
+        description: Gives access to install a MinecartRevolution addon.
+
+    minecartrevolution.translations.*:
+        description: Gives access to use all MinecartRevolution translation functions.
+        children:
+            minecartrevolution.translations.check: true
+            minecartrevolution.translations.install: true
+    minecartrevolution.translations.check:
+        description: Gives access to see all avaiable MinecartRevolution translations.
+    minecartrevolution.translations.install:
+        description: Gives access to install a MinecartRevolution translation.
+
+    minecartrevolution.flycart:
+        description: Gives access to use the MinecartRevolution FlyCart.
+
+    minecartrevolution.vender:
+        description: Give access to use the MinecartRevolution vender command.
+
+    minecartrevolution.delcarts:
+        description: Gives access to use the MinecartRevolution DeleteCarts command.
+
+    minecartrevolution.stopcarts:
+        description: Give acces to use the MinecartRevolution Stopcarts command.
+
+    minecartrevolution.getv:
+        description: Give acces to use the MinecartRevolution get version command.
+
+    minecartrevolution.reload:
+        description: Give acces to use the MinecartRevolution get reload command.
+
+    minecartrevolution.patchregion:
+        description: Give acces to use the MinecartRevolution get patchregion command.
+
+    minecartrevolution.st:
+        description: Give acces to use the MinecartRevolution st command.
+
+    minecartrevolution.placeCtrlBlock.*:
+        description: Gives access to place all MinecartRevolution blocks and signs.
+        default: true
+        children:
+            minecartrevolution.placeCtrlBlock: true
+    minecartrevolution.placeCtrlBlock.booster:
+        description: Gives access to place the MinecartRevolution booster block.
+    minecartrevolution.placeCtrlBlock.brake:
+        description: Gives access to place the MinecartRevolution brake block.
+    minecartrevolution.placeCtrlBlock.reverse:
+        description: Gives access to place the MinecartRevolution reverse block.
+    minecartrevolution.placeCtrlBlock.eject:
+        description: Gives access to place the MinecartRevolution eject block.
+    minecartrevolution.placeCtrlBlock.elevator:
+        description: Gives access to place the MinecartRevolution elevator block.
+    minecartrevolution.placeCtrlBlock.station:
+        description: Gives access to place the MinecartRevolution station block.
+    minecartrevolution.placeCtrlBlock.kill:
+        description: Gives access to place the MinecartRevolution kill block.
+    minecartrevolution.placeCtrlBlock.clearInv:
+        description: Gives access to place the MinecartRevolution clear inventory block.
+    minecartrevolution.placeCtrlBlock.fly:
+        description: Gives access to place the MinecartRevolution fly block.
+    minecartrevolution.placeCtrlBlock.heal:
+        description: Gives access to place the MinecartRevolution heal block.
+    minecartrevolution.placeCtrlBlock.grab:
+        description: Give access to place the MinecartRevolution grab block.
+    minecartrevolution.placeCtrlBlock.intersection:
+        description: Give access to place the MinecartRevolution intersection block.
+
+    minecartrevolution.placeCtrlBlock.announceSign:
+        description: Gives access to place the MinecartRevolution announce sign.
+    minecartrevolution.placeCtrlBlock.stationSign:
+        description: Gives access to place the MinecartRevolution station sign.
+    minecartrevolution.placeCtrlBlock.trainStationSign:
+        description: Gives access to place the MinecartRevolution train tation sign.
+    minecartrevolution.placeCtrlBlock.holdSign:
+        description: Gives access to place the MinecartRevolution hold sign.
+    minecartrevolution.placeCtrlBlock.spawnSign:
+        description: Gives access to place the MinecartRevolution spawn sign.
+    minecartrevolution.placeCtrlBlock.flySign:
+        description: Gives access to place the MinecartRevolution fly boost sign.
+    minecartrevolution.placeCtrlBlock.chestSign:
+        description: Gives access to place the MinecartRevolution chest sign.
+    minecartrevolution.placeCtrlBlock.collectorSign:
+        description: Gives access to place the MinecartRevolution collector sign.
+    minecartrevolution.placeCtrlBlock.craftSign:
+        description: Gives access to place the MinecartRevolution craft sign.
+    minecartrevolution.placeCtrlBlock.smeltSign:
+        description: Gives access to place the MinecartRevolution smelt sign.
+    minecartrevolution.placeCtrlBlock.farmSign.*:
+        description: Gives access to place the MinecartRevolution farm sign.
+        children:
+            minecartrevolution.placeCtrlBlock.farmSign.wood: true
+            minecartrevolution.placeCtrlBlock.farmSign.wheat: true
+            minecartrevolution.placeCtrlBlock.farmSign.pumpkin: true
+            minecartrevolution.placeCtrlBlock.farmSign.weed: true
+    minecartrevolution.placeCtrlBlock.farmSign.wood:
+        description: Gives access to place the MinecartRevolution wood farm sign.
+    minecartrevolution.placeCtrlBlock.farmSign.wheat:
+        description: Gives access to place the MinecartRevolution wheat farm sign.
+    minecartrevolution.placeCtrlBlock.farmSign.pumpkin:
+        description: Gives access to place the MinecartRevolution weed farm sign.
+    minecartrevolution.placeCtrlBlock.farmSign.melon:
+        description: Gives access to place the MinecartRevolution weed farm sign.
+    minecartrevolution.placeCtrlBlock.farmSign.sugarcane:
+        description: Gives access to place the MinecartRevolution sugar cane farm sign.
+    minecartrevolution.placeCtrlBlock.grabSign:
+        description: Gives access to place the MinecartRevolution grab sign.
+    minecartrevolution.placeCtrlBlock.lockSign:
+        description: Gives access to place the MinecartRevolution lock sign.
+    minecartrevolution.placeCtrlBlock.porterSign:
+        description: Give access to place the MinecartRevolution porter sign.
+    minecartrevolution.placeCtrlBlock.powerSign:
+        description: Give access to place the MinecartRevolution power sign.
+    minecartrevolution.placeCtrlBlock.maxspeedSign:
+        description: Give access to place the MinecartRevolution maxspeed sign.
+    minecartrevolution.placeCtrlBlock.timeSign:
+        description: Give access to place the MinecartRevolution time sign.
+    minecartrevolution.placeCtrlBlock.weatherSign:
+        description: Give access to place the MinecartRevolution weather sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.*:
+        description: Give access to place the MinecartRevolution sensor sign.
+        children:
+            minecartrevolution.placeCtrlBlock.sensorSign.direction: true
+            minecartrevolution.placeCtrlBlock.sensorSign.minecart: true
+            minecartrevolution.placeCtrlBlock.sensorSign.player: true
+            minecartrevolution.placeCtrlBlock.sensorSign.mob: true
+            minecartrevolution.placeCtrlBlock.sensorSign.empty: true
+            minecartrevolution.placeCtrlBlock.sensorSign.nocargo: true
+            minecartrevolution.placeCtrlBlock.sensorSign.item: true
+    minecartrevolution.placeCtrlBlock.sensorSign.direction:
+        description: Gives access to place the MinecartRevolution direction sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.minecart:
+        description: Gives access to place the MinecartRevolution minecart sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.player:
+        description: Gives access to place the MinecartRevolution player sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.mob:
+        description: Gives access to place the MinecartRevolution mob sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.empty:
+        description: Gives access to place the MinecartRevolution empty sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.nocargo:
+        description: Gives access to place the MinecartRevolution nocargo sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.item:
+        description: Gives access to place the MinecartRevolution item sensor sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.*:
+        description: Give access to place the MinecartRevolution intersection sign.
+        children:
+            minecartrevolution.placeCtrlBlock.intersectionSign.direction: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.minecart: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.player: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.mob: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.empty: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.nocargo: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.redstone: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.item: true
+            minecartrevolution.placeCtrlBlock.intersectionSign.st: true
+    minecartrevolution.placeCtrlBlock.intersectionSign.direction:
+        description: Gives access to place the MinecartRevolution direction intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.minecart:
+        description: Gives access to place the MinecartRevolution minecart intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.player:
+        description: Gives access to place the MinecartRevolution player intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.mob:
+        description: Gives access to place the MinecartRevolution mob intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.empty:
+        description: Gives access to place the MinecartRevolution empty intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.nocargo:
+        description: Gives access to place the MinecartRevolution nocargo intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.redstone:
+        description: Gives access to place the MinecartRevolution redstone intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.item:
+        description: Gives access to place the MinecartRevolution item intersection sign.
+    minecartrevolution.placeCtrlBlock.intersectionSign.st:
+        description: Gives access to place the MinecartRevolution st intersection sign.
+    minecartrevolution.placeCtrlBlock.commandSign.*:
+        description: Gives access to place the MinecartRevolution command sign.
+        children:
+            minecartrevolution.placeCtrlBlock.commandSign.executor.*: true
+            minecartrevolution.placeCtrlBlock.commandSign.command.*: true
+    minecartrevolution.placeCtrlBlock.commandSign.executor.*:
+        description: Gives access to place the MinecartRevolution command sign with every command executor.
+        children:
+            minecartrevolution.placeCtrlBlock.commandSign.executor.player: true
+            minecartrevolution.placeCtrlBlock.commandSign.executor.console: true
+    minecartrevolution.placeCtrlBlock.commandSign.executer.player:
+        description: Gives access to place the MinecartRevolution command sign with the player command executor.
+    minecartrevolution.placeCtrlBlock.commandSign.executer.console:
+        description: Gives access to place the MinecartRevolution command sign with the console command executor.
+    minecartrevolution.placeCtrlBlock.commandSign.command.*:
+        description: Gives access to place the MinecartRevolution command sign with every command.
+    minecartrevolution.placeCtrlBlock.commandSign.command.COMMAND:
+        description: Gives access to place the MinecartRevolution command sign with the command COMMAND.
+    minecartrevolution.placeCtrlBlock.descentSign:
+        description: Give access to place the MinecartRevolution descent sign.
+    minecartrevolution.placeCtrlBlock.destinationSign:
+        description: Give access to place the MinecartRevolution destination sign.
+    minecartrevolution.placeCtrlBlock.effectSign:
+        description: Give access to place the MinecartRevolution effect sign.
+    minecartrevolution.placeCtrlBlock.invClearSign:
+        description: Give access to place the MinecartRevolution inv-clear sign.
