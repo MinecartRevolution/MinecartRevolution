@@ -29,7 +29,6 @@ public class BlockIntersection {
                 }
                 catch (NullPointerException ex) {
                 }
-
                 if (!punchMessagePlayerMap.get(player)) {
                     minecart.setVelocity(new Vector(0, 0, 0));
                     MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("punch", ""), true);
@@ -130,7 +129,7 @@ public class BlockIntersection {
             } else if (lineContent[0].contains("st-") && minecart.getPassenger() instanceof Player) {
                 Player player = (Player) minecart.getPassenger();
                 String[] variables = lineContent[0].split("-");
-                if (MinecartRevolution.minecartListener.stationWordMap.containsKey(player) && MinecartRevolution.minecartListener.stationWordMap.get(player).equalsIgnoreCase(variables[1])) {
+                if (MinecartRevolution.minecartListener.stationWordMap.containsKey(player.getName()) && MinecartRevolution.minecartListener.stationWordMap.get(player.getName()).equalsIgnoreCase(variables[1])) {
                     newDriveDirection = lineContent[1];
                 }
             }

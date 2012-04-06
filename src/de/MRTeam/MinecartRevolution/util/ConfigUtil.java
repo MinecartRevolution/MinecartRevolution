@@ -203,7 +203,7 @@ public class ConfigUtil {
     public String      playEffects                        = "true";
     public String      loadMinecartChunks                 = "true";
     public String      putMinecartInInvOnQuit             = "true";
-    public int         removeMinecartWhenDerailedTime     = 120;
+    public int         removeMinecartWhenDerailedTime     = 0;
     public int         grabBlockRadius                    = 5;
     public int         farmMaxRadius                      = 20;
     public int         timesOverloadedDisable             = 3;

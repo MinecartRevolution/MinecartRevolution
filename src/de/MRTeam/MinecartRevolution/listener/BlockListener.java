@@ -166,13 +166,13 @@ public class BlockListener implements Listener {
         }
 
         if (minecartType == 0) {
-            Minecart minecart = (Minecart) railBlock.getWorld().spawn(railBlock.getLocation(), Minecart.class);
+            Minecart minecart = railBlock.getWorld().spawn(railBlock.getLocation(), Minecart.class);
             minecart.setVelocity(velocity);
         } else if (minecartType == 1) {
-            Minecart minecart = (Minecart) railBlock.getWorld().spawn(railBlock.getLocation(), StorageMinecart.class);
+            Minecart minecart = railBlock.getWorld().spawn(railBlock.getLocation(), StorageMinecart.class);
             minecart.setVelocity(velocity);
         } else if (minecartType == 2) {
-            Minecart minecart = (Minecart) railBlock.getWorld().spawn(railBlock.getLocation(), PoweredMinecart.class);
+            Minecart minecart = railBlock.getWorld().spawn(railBlock.getLocation(), PoweredMinecart.class);
             minecart.setVelocity(velocity);
         }
     }

@@ -14,6 +14,7 @@ public class LogListener implements Filter {
         this.plugin = plugin;
     }
 
+    @Override
     public boolean isLoggable(LogRecord record) {
 
         int recordLevel = 0;
@@ -27,7 +28,7 @@ public class LogListener implements Filter {
                 return true;
             } else {
                 if (recordLevel <= maxLevel) {
-                    MinecartRevolution.mrLogger.warning("[MinecartRevolution] Disabling MinecartRevolution because of lag!");
+                    MinecartRevolution.messagesUtil.sendLogMessage(null, "Disabling MinecartRevolution because of lag!", false, "warning");
                     plugin.getPluginLoader().disablePlugin(plugin);
 
                     return true;

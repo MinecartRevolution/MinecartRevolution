@@ -1,5 +1,5 @@
 name: MinecartRevolution
-version: 1.1.0 (1.2.5 CB-R1)
+version: DEV-1.1.6 (1.2.5 CB-R1)
 description: The Rebuild of MinecartMania!
 authors: [Hoppelmann, Nolig, TutorialMakerHD]
 load: startup
@@ -180,6 +180,7 @@ permissions:
             minecartrevolution.placeCtrlBlock.sensorSign.empty: true
             minecartrevolution.placeCtrlBlock.sensorSign.nocargo: true
             minecartrevolution.placeCtrlBlock.sensorSign.item: true
+            minecartrevolution.placeCtrlBlock.sensorSign.st: true
     minecartrevolution.placeCtrlBlock.sensorSign.direction:
         description: Gives access to place the MinecartRevolution direction sensor sign.
     minecartrevolution.placeCtrlBlock.sensorSign.minecart:
@@ -194,6 +195,8 @@ permissions:
         description: Gives access to place the MinecartRevolution nocargo sensor sign.
     minecartrevolution.placeCtrlBlock.sensorSign.item:
         description: Gives access to place the MinecartRevolution item sensor sign.
+    minecartrevolution.placeCtrlBlock.sensorSign.st:
+        description: Gives access to place the MinecartRevolution st sensor sign.
     minecartrevolution.placeCtrlBlock.intersectionSign.*:
         description: Give access to place the MinecartRevolution intersection sign.
         children:

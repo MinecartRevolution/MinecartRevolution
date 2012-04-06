@@ -29,7 +29,6 @@ import de.MRTeam.MinecartRevolution.util.PermissionUtil;
 import de.MRTeam.MinecartRevolution.util.PlayEffectUtil;
 import de.MRTeam.MinecartRevolution.util.RemoveDerailedCartsUtil;
 import de.MRTeam.MinecartRevolution.util.UpdateUtil;
-import de.MRTeam.MinecartRevolution.util.dataStructure.FileArrayList;
 import de.MRTeam.MinecartRevolution.util.database.DatabaseConnectionUtil;
 import de.MRTeam.MinecartRevolution.util.database.DatabaseDestinationLocationUtil;
 import de.MRTeam.MinecartRevolution.util.database.DatabaseUtil;
@@ -39,20 +38,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class MinecartRevolution extends JavaPlugin {
 
+    @Override
     public void onDisable() {
 
-        mrLogger.info("[" + descFile.getName() + "] Successfully deactivated plugin");
+        messagesUtil.sendLogMessage(null, "Successfully deactivated plugin", false, "info");
     }
 
+    @Override
     public void onEnable() {
 
         register();
         new File(getDataFolder(), "saves").mkdirs();
-        mrLogger.info("[" + descFile.getName() + "] Successfully activated plugin");
-
-        FileArrayList<String> testList = new FileArrayList<String>("testList");
-        testList.add("TEST1");
-        testList.add("TEST2");
+        messagesUtil.sendLogMessage(null, "Successfully activated plugin", false, "info");
     }
 
     private void register() {

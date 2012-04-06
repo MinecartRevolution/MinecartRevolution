@@ -6,10 +6,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.RandomAccess;
 
@@ -40,9 +40,12 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
         if (!saveFile.exists()) {
             new File("plugins" + File.separator + "MinecartRevolution" + File.separator + "saves" + File.separator + "lists").mkdirs();
             save();
+        } else {
+            load();
         }
     }
 
+    @Override
     public boolean add(E value) {
 
         boolean returnValue = super.add(value);
@@ -52,6 +55,7 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
         return returnValue;
     }
 
+    @Override
     public void add(int position, E value) {
 
         super.add(position, value);
@@ -60,6 +64,7 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
         }
     }
 
+    @Override
     public boolean remove(Object value) {
 
         boolean returnValue = super.remove(value);
@@ -69,6 +74,7 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
         return returnValue;
     }
 
+    @Override
     public E remove(int position) {
 
         E returnValue = super.remove(position);
@@ -83,24 +89,29 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             String save = "";
-            for (int counter = 0; counter < size(); counter++) {
-                E value = get(counter);
+            Iterator<E> iterator = iterator();
+            while (iterator.hasNext()) {
+                E value = iterator.next();
                 save += value;
-                counter++;
-                if (counter < size()) {
+                if (iterator.hasNext()) {
                     save += ",";
                 }
             }
             writer.write(save);
             writer.close();
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
         }
     }
 
     public void save() {
 
         save(saveFile);
+    }
+
+    public void delete() {
+
+        saveFile.delete();
     }
 
     @SuppressWarnings ("unchecked")
@@ -114,7 +125,7 @@ public class FileArrayList<E> extends ArrayList<E> implements List<E>, RandomAcc
             }
             reader.close();
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
         }
     }
 

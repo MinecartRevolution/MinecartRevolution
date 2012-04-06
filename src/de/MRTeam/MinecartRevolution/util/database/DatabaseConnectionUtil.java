@@ -36,8 +36,8 @@ public class DatabaseConnectionUtil {
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection connections = (Connection) DriverManager.getConnection(connectionURL, user, password);
-            Statement statement = (Statement) connections.createStatement();
+            Connection connections = DriverManager.getConnection(connectionURL, user, password);
+            Statement statement = connections.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             return resultSet;
         }

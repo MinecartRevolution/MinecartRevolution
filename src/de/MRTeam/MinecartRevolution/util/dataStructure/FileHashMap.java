@@ -6,7 +6,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,9 +43,12 @@ public class FileHashMap<K, V> extends HashMap<K, V> implements Map<K, V>, Clone
         if (!saveFile.exists()) {
             new File("plugins" + File.separator + "MinecartRevolution" + File.separator + "saves" + File.separator + "maps").mkdirs();
             save();
+        } else {
+            load();
         }
     }
 
+    @Override
     public V put(K key, V value) {
 
         V newValue = super.put(key, value);
@@ -56,6 +58,7 @@ public class FileHashMap<K, V> extends HashMap<K, V> implements Map<K, V>, Clone
         return newValue;
     }
 
+    @Override
     public V remove(Object key) {
 
         V newValue = super.remove(key);
@@ -83,13 +86,18 @@ public class FileHashMap<K, V> extends HashMap<K, V> implements Map<K, V>, Clone
             writer.write(save);
             writer.close();
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
         }
     }
 
     public void save() {
 
         save(saveFile);
+    }
+
+    public void delete() {
+
+        saveFile.delete();
     }
 
     @SuppressWarnings ("unchecked")
@@ -104,7 +112,7 @@ public class FileHashMap<K, V> extends HashMap<K, V> implements Map<K, V>, Clone
             }
             reader.close();
         }
-        catch (IOException ex) {
+        catch (Exception ex) {
         }
     }
 

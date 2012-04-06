@@ -53,7 +53,7 @@ public class BlockUtil {
                 controlBlockLocation = oldControlBlockLocation.clone();
                 controlBlockLocation.setY(controlBlockLocation.getY() - 3.0D);
                 if (controlBlockLocation.getBlock() != null && controlBlockLocation.getBlock().getType() == Material.SIGN_POST) {
-	return (Sign) location.getWorld().getBlockAt(controlBlockLocation).getState();
+                    return (Sign) location.getWorld().getBlockAt(controlBlockLocation).getState();
                 }
             }
             controlBlockLocation = oldControlBlockLocation.clone();

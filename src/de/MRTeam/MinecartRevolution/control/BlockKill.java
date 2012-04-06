@@ -16,10 +16,10 @@ public class BlockKill {
             if (State instanceof Sign) {
                 Sign sign = (Sign) State;
                 if (sign.getLine(1).equalsIgnoreCase("[Kill]") && sign.getLine(2) != null && sign.getLine(2).equalsIgnoreCase("EmptyCarts") && minecart.getPassenger() == null) {
-	minecart.remove();
-	if (MinecartRevolution.configUtil.playEffects.equalsIgnoreCase("true")) {
-	    MinecartRevolution.playEffectUtil.playEffect(minecart, "Smoke");
-	}
+                    minecart.remove();
+                    if (MinecartRevolution.configUtil.playEffects.equalsIgnoreCase("true")) {
+                        MinecartRevolution.playEffectUtil.playEffect(minecart, "Smoke");
+                    }
                 }
             }
         } else {

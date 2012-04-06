@@ -36,6 +36,7 @@ class MMScanThread extends Thread implements Runnable {
         this.player = player;
     }
 
+    @Override
     public void run() {
 
         int signsFound = 0;
@@ -226,7 +227,7 @@ class MMScanThread extends Thread implements Runnable {
             }
         }
 
-        MinecartRevolution.messagesUtil.sendMessage(player, (MinecartRevolution.messagesUtil.getMessage("patchregion.replaced", "").replaceAll("%amount%", String.valueOf(signsFound))), false);
+        MinecartRevolution.messagesUtil.sendLogMessage(player, (MinecartRevolution.messagesUtil.getMessage("patchregion.replaced", "").replaceAll("%amount%", String.valueOf(signsFound))), false, "info");
     }
 
     private String formatItems(ArrayList<String> items) {

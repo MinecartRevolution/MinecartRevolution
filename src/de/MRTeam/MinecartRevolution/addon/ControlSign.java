@@ -39,14 +39,17 @@ public abstract class ControlSign implements Control {
         MinecartRevolution.signAction.addControlSign(this);
     }
 
+    @Override
     public void reset(Minecart minecart) {
 
     }
 
+    @Override
     public void onRedstonePower(Minecart minecart) {
 
     }
 
+    @Override
     public String getBlockName() {
 
         return blockName;
@@ -61,6 +64,7 @@ public abstract class ControlSign implements Control {
         }
     }
 
+    @Override
     public void setBlockName(String blockName) {
 
         this.blockName = blockName;

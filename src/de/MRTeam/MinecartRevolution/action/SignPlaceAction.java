@@ -161,6 +161,8 @@ public class SignPlaceAction implements Listener {
                 MinecartRevolution.messagesUtil.sendMessage(event.getPlayer(), MinecartRevolution.messagesUtil.getMessage("createdSensorSign", "placeCtrlSign"), true);
             } else if (event.getLine(1).equalsIgnoreCase("Item") && MinecartRevolution.permissionUtil.hasPermission(event.getPlayer(), "placeCtrlBlock", "sensorSign.item")) {
                 MinecartRevolution.messagesUtil.sendMessage(event.getPlayer(), MinecartRevolution.messagesUtil.getMessage("createdSensorSign", "placeCtrlSign"), true);
+            } else if (event.getLine(1).equalsIgnoreCase("St") && MinecartRevolution.permissionUtil.hasPermission(event.getPlayer(), "placeCtrlBlock", "sensorSign.st")) {
+                MinecartRevolution.messagesUtil.sendMessage(event.getPlayer(), MinecartRevolution.messagesUtil.getMessage("createdSensorSign", "placeCtrlSign"), true);
             } else {
                 noPermissions(event.getBlock().getLocation(), event.getPlayer());
             }

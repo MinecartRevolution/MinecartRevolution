@@ -3,7 +3,7 @@
 package de.MRTeam.MinecartRevolution.util;
 
 import de.MRTeam.MinecartRevolution.MinecartRevolution;
-import java.util.ArrayList;
+import de.MRTeam.MinecartRevolution.util.dataStructure.FileArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.bukkit.entity.Minecart;
@@ -24,7 +24,7 @@ public class FlyCartUtil {
             if (flyerList.contains(player.getName()) && !vectorWasSet.contains(player.getName())) {
                 Vector vec = minecart.getVelocity();
                 if (MinecartRevolution.blockUtil.getControlBlock(minecart) != null) {
-	vec.setY(vec.getY() + 1.0D);
+                    vec.setY(vec.getY() + 1.0D);
                 }
                 vec.setY(vec.getY() + 2.0D);
                 minecart.setVelocity(vec);
@@ -39,6 +39,7 @@ public class FlyCartUtil {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
 
+            @Override
             public void run() {
 
                 minecart.setVelocity(player.getLocation().getDirection().multiply(2.0D));
@@ -47,9 +48,9 @@ public class FlyCartUtil {
         }, 2000L);
     }
 
-    MinecartRevolution       plugin;
+    MinecartRevolution           plugin;
 
-    public ArrayList<String> flyerList    = new ArrayList<String>();
-    public ArrayList<String> vectorWasSet = new ArrayList<String>();
+    public FileArrayList<String> flyerList    = new FileArrayList<String>("flyerList");
+    public FileArrayList<String> vectorWasSet = new FileArrayList<String>("vectorWasSet");
 
 }

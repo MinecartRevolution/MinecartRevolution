@@ -112,7 +112,7 @@ public class SignSensor {
                     }
                 }
             } else if (sign.getLine(1).equalsIgnoreCase("St") && minecart.getPassenger() instanceof Player) {
-                if (MinecartRevolution.minecartListener.stationWordMap.containsKey((Player) minecart.getPassenger()) && MinecartRevolution.minecartListener.stationWordMap.get((Player) minecart.getPassenger()).equalsIgnoreCase(sign.getLine(2))) {
+                if (MinecartRevolution.minecartListener.stationWordMap.containsKey( ((Player) minecart.getPassenger()).getName()) && MinecartRevolution.minecartListener.stationWordMap.get( ((Player) minecart.getPassenger()).getName()).equalsIgnoreCase(sign.getLine(2))) {
                     MinecartRevolution.blockUtil.powerNearbyLeaver(sign.getBlock(), true);
                 }
             }

@@ -24,7 +24,7 @@ public class RemoveDerailedCartsUtil {
 
     private void removeMinecart(Minecart minecart) {
 
-        if (!MinecartRevolution.minecartListener.isMinecartOnRail(minecart) && !minecart.isDead()) {
+        if (!MinecartRevolution.minecartListener.isMinecartOnRail(minecart) && !minecart.isDead() && minecart.getPassenger().isEmpty()) {
             minecart.remove();
             alreadyExecuted.remove(minecart);
         }
@@ -35,6 +35,7 @@ public class RemoveDerailedCartsUtil {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
 
+            @Override
             public void run() {
 
                 removeMinecart(minecart);

@@ -32,15 +32,15 @@ public class UpdateUtil {
         } else {
             if (compareVersions(versionString, this.plugin.getDescription().getVersion())) {
                 if (dev) {
-	return MinecartRevolution.messagesUtil.getMessage("check.newDevVersion", "update").replaceAll("%version%", versionString);
+                    return MinecartRevolution.messagesUtil.getMessage("check.newDevVersion", "update").replaceAll("%version%", versionString);
                 } else {
-	return MinecartRevolution.messagesUtil.getMessage("check.newVersion", "update").replaceAll("%version%", versionString);
+                    return MinecartRevolution.messagesUtil.getMessage("check.newVersion", "update").replaceAll("%version%", versionString);
                 }
             } else {
                 if (returnAll) {
-	return MinecartRevolution.messagesUtil.getMessage("check.noNewVersion", "update");
+                    return MinecartRevolution.messagesUtil.getMessage("check.noNewVersion", "update");
                 } else {
-	return null;
+                    return null;
                 }
             }
         }
@@ -72,7 +72,7 @@ public class UpdateUtil {
         try {
             for (int counter = 0; counter < version1Array2.length && counter < version2Array2.length; counter++) {
                 if (Integer.parseInt(version1Array2[counter]) > Integer.parseInt(version2Array2[counter])) {
-	return true;
+                    return true;
                 }
             }
         }
@@ -109,8 +109,8 @@ public class UpdateUtil {
                 MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("updater.endInstallation", "update"), true);
                 MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("updater.endUpdate", "update").replaceAll("%plugin%", plugin.getDescription().getName()), true);
                 if (dev) {
-	MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("devBuildPart1", "warning"), true);
-	MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("devBuildPart2", "warning"), true);
+                    MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("devBuildPart1", "warning"), true);
+                    MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("devBuildPart2", "warning"), true);
                 }
                 MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("updater.panel", "update"), true);
             }

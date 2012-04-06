@@ -318,6 +318,23 @@ public class MessagesUtil {
         }
     }
 
+    public void sendLogMessage(Player player, String message, boolean noPrefix, String level) {
+
+        if (level.equalsIgnoreCase("info")) {
+            if (player == null) {
+                MinecartRevolution.mrLogger.info(formatMessage(message.replaceAll("(?i)&([a-n0-9])", "")).replaceAll("§[a-n0-9]", ""));
+            } else {
+                sendMessage(player, message, noPrefix);
+            }
+        } else if (level.equalsIgnoreCase("warning")) {
+            if (player == null) {
+                MinecartRevolution.mrLogger.warning(formatMessage(message.replaceAll("(?i)&([a-n0-9])", "")).replaceAll("§[a-n0-9]", ""));
+            } else {
+                sendMessage(player, message, noPrefix);
+            }
+        }
+    }
+
     public void broadcastMessage(String message, boolean noPrefix) {
 
         if (!noPrefix) {

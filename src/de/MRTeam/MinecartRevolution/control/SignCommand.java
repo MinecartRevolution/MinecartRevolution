@@ -38,10 +38,10 @@ public class SignCommand {
 
             if (sign.getLine(3).equalsIgnoreCase("Player")) {
                 if (minecart.getPassenger() != null) {
-	if (minecart.getPassenger() instanceof Player) {
-	    Player player = (Player) minecart.getPassenger();
-	    player.performCommand(command);
-	}
+                    if (minecart.getPassenger() instanceof Player) {
+                        Player player = (Player) minecart.getPassenger();
+                        player.performCommand(command);
+                    }
 
                 }
             } else if (sign.getLine(3).equalsIgnoreCase("Console")) {

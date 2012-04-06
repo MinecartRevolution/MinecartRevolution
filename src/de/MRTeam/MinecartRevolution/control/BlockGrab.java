@@ -17,7 +17,7 @@ public class BlockGrab {
             Sign sign = MinecartRevolution.blockUtil.getSignBlockSign(minecart);
             if (sign.getLine(2) != null) {
                 try {
-	radius = Integer.parseInt(sign.getLine(2));
+                    radius = Integer.parseInt(sign.getLine(2));
                 }
                 catch (Exception localException) {
                 }
@@ -27,8 +27,8 @@ public class BlockGrab {
         if (minecart.getPassenger() == null) {
             for (Entity entity : minecart.getNearbyEntities(radius, radius, radius)) {
                 if (entity instanceof Player && minecart.getPassenger() == null && entity.getVehicle() == null) {
-	minecart.setPassenger(entity);
-	break;
+                    minecart.setPassenger(entity);
+                    break;
                 }
             }
             if (MinecartRevolution.configUtil.playEffects.equalsIgnoreCase("true")) {

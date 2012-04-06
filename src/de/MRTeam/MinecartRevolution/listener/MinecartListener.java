@@ -3,10 +3,10 @@
 package de.MRTeam.MinecartRevolution.listener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import de.MRTeam.MinecartRevolution.MinecartRevolution;
 import de.MRTeam.MinecartRevolution.addon.ControlBlock;
 import de.MRTeam.MinecartRevolution.addon.ControlSign;
+import de.MRTeam.MinecartRevolution.util.dataStructure.FileHashMap;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -185,10 +185,10 @@ public class MinecartListener implements Listener {
 
         if (event.getEntered() instanceof Player && event.getVehicle() instanceof Minecart) {
             Player player = (Player) event.getEntered();
-            if (!MinecartRevolution.signAction.signLock.lockList.contains( ((Minecart) event.getVehicle()).getEntityId()) && MinecartRevolution.configUtil.enablePunch.equalsIgnoreCase("true")) {
+            if (!MinecartRevolution.signAction.signLock.lockList.contains(player.getName()) && MinecartRevolution.configUtil.enablePunch.equalsIgnoreCase("true")) {
                 MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("punch", ""), true);
-                MinecartRevolution.blockAction.blockStation.checkPlayerEnter((Minecart) event.getVehicle());
             }
+            MinecartRevolution.blockAction.blockStation.checkPlayerEnter((Minecart) event.getVehicle());
         }
     }
 
@@ -203,7 +203,7 @@ public class MinecartListener implements Listener {
                     MinecartRevolution.flyCart.flyerList.remove(player.getName());
                     MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("flyCartDisable", ""), true);
                 }
-                MinecartRevolution.signAction.signLock.onVehicleExit((Minecart) event.getVehicle(), player);
+                MinecartRevolution.signAction.signLock.onVehicleExit((Minecart) event.getVehicle(), player, event);
             }
         }
     }
@@ -315,7 +315,7 @@ public class MinecartListener implements Listener {
         minecart.setVelocity(speed);
     }
 
-    MinecartRevolution             plugin;
+    MinecartRevolution                 plugin;
 
-    public HashMap<Player, String> stationWordMap = new HashMap<Player, String>();
+    public FileHashMap<String, String> stationWordMap = new FileHashMap<String, String>("stationWordMap");
 }

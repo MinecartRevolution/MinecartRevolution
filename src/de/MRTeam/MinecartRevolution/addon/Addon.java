@@ -17,9 +17,8 @@ public class Addon {
 
         MinecartRevolution.addons.put(plugin.getName(), plugin);
         MinecartRevolution.addonsIndexList.add(plugin);
-        // MinecartRevolution.addonIndexMap.put(plugin.getDescription().getName(), MinecartRevolution.addons.indexOf(plugin));
 
-        MinecartRevolution.messagesUtil.sendMessage(null, MinecartRevolution.messagesUtil.getMessage("addon", "enable").replaceAll("%addon%", plugin.getDescription().getName()).replaceAll("%plugin%", MinecartRevolution.descFile.getName()), false);
+        MinecartRevolution.messagesUtil.sendLogMessage(null, MinecartRevolution.messagesUtil.getMessage("addon", "enable").replaceAll("%addon%", plugin.getDescription().getName()).replaceAll("%plugin%", MinecartRevolution.descFile.getName()), false, "info");
     }
 
     private void register() {

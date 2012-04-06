@@ -37,10 +37,12 @@ public abstract class ControlBlock implements Control {
         MinecartRevolution.configUtil.addAddonBlockId(plugin, blockName, blockId, blockMetadata);
     }
 
+    @Override
     public void reset(Minecart minecart) {
 
     }
 
+    @Override
     public void onRedstonePower(Minecart minecart) {
 
     }
@@ -55,6 +57,7 @@ public abstract class ControlBlock implements Control {
         return blockMetadata;
     }
 
+    @Override
     public String getBlockName() {
 
         return blockName;
@@ -70,6 +73,7 @@ public abstract class ControlBlock implements Control {
         this.blockMetadata = blockMetadata;
     }
 
+    @Override
     public void setBlockName(String blockName) {
 
         this.blockName = blockName;

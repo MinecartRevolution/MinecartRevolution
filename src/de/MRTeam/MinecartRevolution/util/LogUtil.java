@@ -18,6 +18,7 @@ public class LogUtil implements Filter {
         this.plugin = plugin;
     }
 
+    @Override
     public boolean isLoggable(LogRecord record) {
 
         try {

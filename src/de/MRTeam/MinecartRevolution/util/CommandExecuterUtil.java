@@ -30,6 +30,7 @@ public class CommandExecuterUtil implements CommandExecutor {
         this.plugin = plugin;
     }
 
+    @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 
         Player player = null;
@@ -186,9 +187,11 @@ public class CommandExecuterUtil implements CommandExecutor {
                     if (player != null) {
                         String message = MinecartRevolution.messagesUtil.getMessage("stoppedMinecartsBroadcast", "").replaceAll("%player%", player.getName());
                         MinecartRevolution.messagesUtil.broadcastMessage(message, false);
+                        MinecartRevolution.messagesUtil.sendLogMessage(null, message, false, "info");
                     } else {
                         String message = MinecartRevolution.messagesUtil.getMessage("stoppedMinecartsBroadcast", "").replaceAll("%player%", "Console");
                         MinecartRevolution.messagesUtil.broadcastMessage(message, false);
+                        MinecartRevolution.messagesUtil.sendLogMessage(null, message, false, "info");
                     }
                 } else {
                     MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("noPermission", ""), false);
@@ -259,7 +262,7 @@ public class CommandExecuterUtil implements CommandExecutor {
                 if (MinecartRevolution.permissionUtil.hasPermission(player, "reload", "")) {
                     MinecartRevolution.messagesUtil.loadMessages();
                     MinecartRevolution.configUtil.loadConfig();
-                    MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("reloaded", ""), false);
+                    MinecartRevolution.messagesUtil.sendLogMessage(player, MinecartRevolution.messagesUtil.getMessage("reloaded", ""), false, "info");
                 }
             } else if (args.length == 1 && args[0].equalsIgnoreCase("patchregion")) {
                 MinecartRevolution.messagesUtil.sendMessage(player, (MinecartRevolution.messagesUtil.getMessage("patchregion.attention", "")), false);
@@ -306,7 +309,7 @@ public class CommandExecuterUtil implements CommandExecutor {
                     if (player == null) {
                         MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("cantPerformOnConsole", ""), false);
                     } else {
-                        MinecartRevolution.minecartListener.stationWordMap.put(player, args[0]);
+                        MinecartRevolution.minecartListener.stationWordMap.put(player.getName(), args[0]);
                         MinecartRevolution.messagesUtil.sendMessage(player, MinecartRevolution.messagesUtil.getMessage("st", ""), false);
                     }
                 }
